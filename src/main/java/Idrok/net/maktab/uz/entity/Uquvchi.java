@@ -1,6 +1,5 @@
 package Idrok.net.maktab.uz.entity;
 
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
