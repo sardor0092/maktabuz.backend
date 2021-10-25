@@ -31,5 +31,4 @@ public class UqtuvchiController {
         uqtuvchiService.deleteById(id);
     }
 
-
 }
