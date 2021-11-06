@@ -2,7 +2,7 @@ package Idrok.net.maktab.uz.service.Impl;
 
 import Idrok.net.maktab.uz.entity.Xona;
 import Idrok.net.maktab.uz.repository.XonaRepository;
-import Idrok.net.maktab.uz.service.VM.XonaService;
+import Idrok.net.maktab.uz.service.XonaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

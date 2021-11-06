@@ -1,14 +1,14 @@
 package Idrok.net.maktab.uz.controller;
 
 import Idrok.net.maktab.uz.entity.Togarak;
-import Idrok.net.maktab.uz.service.VM.TogarakService;
+import Idrok.net.maktab.uz.service.TogarakService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/togaraklar")
+@RequestMapping("/api/togaraklar")
 @CrossOrigin(origins = "*" ,maxAge = 3600)
 public class TogarakController {
     @Autowired

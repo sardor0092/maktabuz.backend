@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/uquvchilar")
+@RequestMapping("/api/uquvchilar")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class UquvchiController {
     @Autowired

@@ -2,7 +2,7 @@ package Idrok.net.maktab.uz.service.Impl;
 
 import Idrok.net.maktab.uz.entity.Togarak;
 import Idrok.net.maktab.uz.repository.TogarakRepository;
-import Idrok.net.maktab.uz.service.VM.TogarakService;
+import Idrok.net.maktab.uz.service.TogarakService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

@@ -2,7 +2,6 @@ package Idrok.net.maktab.uz.service.Impl;
 
 import Idrok.net.maktab.uz.entity.Uqtuvchi;
 import Idrok.net.maktab.uz.repository.UqtuvchiRepository;
-import Idrok.net.maktab.uz.repository.UquvchiRepository;
 import Idrok.net.maktab.uz.service.UqtuvchiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

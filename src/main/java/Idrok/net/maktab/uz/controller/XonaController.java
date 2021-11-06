@@ -1,14 +1,14 @@
 package Idrok.net.maktab.uz.controller;
 
 import Idrok.net.maktab.uz.entity.Xona;
-import Idrok.net.maktab.uz.service.VM.XonaService;
+import Idrok.net.maktab.uz.service.XonaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
-@RequestMapping("/xona")
+@RequestMapping("/api/xona")
 @CrossOrigin(origins = "*", maxAge = 3600)
 public class XonaController {
     @Autowired
