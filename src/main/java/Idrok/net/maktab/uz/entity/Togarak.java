@@ -4,20 +4,21 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 @Entity
 public class Togarak {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private int soat;
+    private LocalDateTime soat;
     private String fan;
     private String oqtuvchi;
 
     public Togarak() {
     }
 
-    public Togarak(Long id, int soat, String fan, String oqtuvchi) {
+    public Togarak(Long id, LocalDateTime soat, String fan, String oqtuvchi) {
         this.id = id;
         this.soat = soat;
         this.fan = fan;
@@ -32,11 +33,11 @@ public class Togarak {
         this.id = id;
     }
 
-    public int getSoat() {
+    public LocalDateTime getSoat() {
         return soat;
     }
 
-    public void setSoat(int soat) {
+    public void setSoat(LocalDateTime soat) {
         this.soat = soat;
     }
 

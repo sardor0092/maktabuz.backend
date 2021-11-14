@@ -1,5 +1,4 @@
 package Idrok.net.maktab.uz.controller;
-
 import Idrok.net.maktab.uz.entity.Uqtuvchi;
 import Idrok.net.maktab.uz.service.UqtuvchiService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,8 +13,9 @@ public class UqtuvchiController {
     @Autowired
     UqtuvchiService uqtuvchiService;
     @GetMapping
-    public List<Uqtuvchi> getAll(){
-        return uqtuvchiService.getAll();
+    public List<Uqtuvchi> getAll(Uqtuvchi uqtuvchi){
+return uqtuvchiService.getAll(uqtuvchi);
+
     }
     @PostMapping
     public Uqtuvchi create(@RequestBody Uqtuvchi uqtuvchi){

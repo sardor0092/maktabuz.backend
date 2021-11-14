@@ -6,7 +6,9 @@ import Idrok.net.maktab.uz.service.UqtuvchiService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
 import java.util.List;
+
 
 @Service
 public class UqtuvchiServiceImpl implements UqtuvchiService   {
@@ -14,9 +16,12 @@ public class UqtuvchiServiceImpl implements UqtuvchiService   {
     UqtuvchiRepository uqtuvchiRepository;
 
     @Override
-    public List<Uqtuvchi> getAll() {
+    public List<Uqtuvchi> getAll(Uqtuvchi uqtuvchi) {
         return uqtuvchiRepository.findAll();
     }
+
+
+
 
     @Override
     public Uqtuvchi create(Uqtuvchi uqtuvchi) {

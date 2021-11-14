@@ -16,6 +16,7 @@ public class Uqtuvchi {
     private int maosh;
 
     public Uqtuvchi() {
+
     }
 
 
