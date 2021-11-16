@@ -5,9 +5,9 @@ import Idrok.net.maktab.uz.entity.UquvYili;
 import Idrok.net.maktab.uz.repository.UquvYiliRepository;
 import Idrok.net.maktab.uz.service.UquvYiliService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class UquvYiliServiceimpl implements UquvYiliService {
@@ -16,8 +16,8 @@ public class UquvYiliServiceimpl implements UquvYiliService {
     UquvYiliRepository uquvYiliRepository;
 
     @Override
-    public List<UquvYili> getAll(UquvYili uquvYili) {
-        return uquvYiliRepository.findAll();
+    public Page<UquvYili> getAll(Pageable pageable) {
+        return uquvYiliRepository.findAll(pageable);
     }
 
     @Override

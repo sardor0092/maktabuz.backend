@@ -2,6 +2,8 @@ package Idrok.net.maktab.uz.controller;
 import Idrok.net.maktab.uz.entity.UquvYili;
 import Idrok.net.maktab.uz.service.UquvYiliService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,8 +17,8 @@ public class UquvYiliController {
     UquvYiliService uquvYiliService;
 
     @GetMapping
-    public List<UquvYili> getAll(UquvYili uquvYili){
-        return uquvYiliService.getAll(uquvYili);
+    public Page<UquvYili> getAll(Pageable pageable){
+        return uquvYiliService.getAll(pageable);
 
     }
     @PostMapping

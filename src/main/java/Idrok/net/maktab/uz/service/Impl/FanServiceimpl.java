@@ -4,17 +4,19 @@ import Idrok.net.maktab.uz.entity.Fan;
 import Idrok.net.maktab.uz.repository.FanRepository;
 import Idrok.net.maktab.uz.service.FanService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.stereotype.Service;
 
-import java.util.List;
-
+@Service
 public class FanServiceimpl implements FanService {
 
     @Autowired
     FanRepository fanRepository;
 
     @Override
-    public List<Fan> getAll(Fan fan) {
-        return fanRepository.findAll();
+    public Page<Fan> getAll(Pageable pageable) {
+        return fanRepository.findAll(pageable);
     }
 
     @Override

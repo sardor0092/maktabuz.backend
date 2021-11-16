@@ -4,6 +4,8 @@ import Idrok.net.maktab.uz.entity.Togarak;
 import Idrok.net.maktab.uz.repository.TogarakRepository;
 import Idrok.net.maktab.uz.service.TogarakService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,9 +15,10 @@ public class TogarakServiceImpl implements TogarakService {
     @Autowired
     TogarakRepository togarakRepository;
 
+
     @Override
-    public List<Togarak> getAll() {
-        return togarakRepository.findAll();
+    public Page<Togarak> getAll(Pageable pageable) {
+        return togarakRepository.findAll(pageable);
     }
 
     @Override
@@ -37,6 +40,4 @@ public class TogarakServiceImpl implements TogarakService {
     public void deleteById(Long id) {
         togarakRepository.deleteById(id);
     }
-
-
 }

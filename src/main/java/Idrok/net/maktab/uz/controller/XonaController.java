@@ -1,11 +1,10 @@
 package Idrok.net.maktab.uz.controller;
-
 import Idrok.net.maktab.uz.entity.Xona;
 import Idrok.net.maktab.uz.service.XonaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
 
 @RestController
 @RequestMapping("/api/xona")
@@ -15,8 +14,8 @@ public class XonaController {
     XonaService xonaService;
 
     @GetMapping
-    public List<Xona> getAll() {
-        return xonaService.getAll();
+    public Page<Xona> getAll(Pageable pageable) {
+        return xonaService.getAll(pageable);
     }
 
     @PostMapping

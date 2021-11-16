@@ -4,24 +4,19 @@ import Idrok.net.maktab.uz.entity.Uqtuvchi;
 import Idrok.net.maktab.uz.repository.UqtuvchiRepository;
 import Idrok.net.maktab.uz.service.UqtuvchiService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-
-import java.util.List;
-
-
 @Service
-public class UqtuvchiServiceImpl implements UqtuvchiService   {
+public class UqtuvchiServiceImpl implements UqtuvchiService {
     @Autowired
     UqtuvchiRepository uqtuvchiRepository;
 
     @Override
-    public List<Uqtuvchi> getAll(Uqtuvchi uqtuvchi) {
-        return uqtuvchiRepository.findAll();
+    public Page<Uqtuvchi> getAll(Pageable pageable) {
+        return uqtuvchiRepository.findAll(pageable);
     }
-
-
-
 
     @Override
     public Uqtuvchi create(Uqtuvchi uqtuvchi) {
@@ -35,11 +30,11 @@ public class UqtuvchiServiceImpl implements UqtuvchiService   {
 
     @Override
     public void delete(Uqtuvchi uqtuvchi) {
-    uqtuvchiRepository.delete(uqtuvchi);
+        uqtuvchiRepository.delete(uqtuvchi);
     }
 
     @Override
     public void deleteById(Long id) {
-    uqtuvchiRepository.deleteById(id);
+        uqtuvchiRepository.deleteById(id);
     }
 }

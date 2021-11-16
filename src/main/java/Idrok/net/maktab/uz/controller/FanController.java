@@ -1,0 +1,37 @@
+package Idrok.net.maktab.uz.controller;
+
+import Idrok.net.maktab.uz.entity.Fan;
+import Idrok.net.maktab.uz.entity.Uqtuvchi;
+import Idrok.net.maktab.uz.service.FanService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
+import org.springframework.web.bind.annotation.*;
+
+@RestController
+@RequestMapping("/api/fan")
+@CrossOrigin(origins = "*", maxAge = 3600)
+public class FanController {
+@Autowired
+FanService fanService;
+    @GetMapping
+    public Page<Fan> getAll(Pageable pageable) {
+        return fanService.getAll(pageable);
+
+    }
+
+    @PostMapping
+    public Fan create(@RequestBody Fan fan) {
+        return fanService.create(fan);
+    }
+
+    @PutMapping
+    public Fan update(@RequestBody Fan fan) {
+        return fanService.update(fan);
+    }
+
+    @DeleteMapping("/{id}")
+    public void delete(@PathVariable Long id) {
+        fanService.deleteById(id);
+    }
+}

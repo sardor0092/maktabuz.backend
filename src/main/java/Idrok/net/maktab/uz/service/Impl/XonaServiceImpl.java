@@ -1,12 +1,11 @@
 package Idrok.net.maktab.uz.service.Impl;
-
 import Idrok.net.maktab.uz.entity.Xona;
 import Idrok.net.maktab.uz.repository.XonaRepository;
 import Idrok.net.maktab.uz.service.XonaService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class XonaServiceImpl implements XonaService {
@@ -14,8 +13,8 @@ public class XonaServiceImpl implements XonaService {
     XonaRepository xonaRepository;
 
     @Override
-    public List<Xona> getAll() {
-        return xonaRepository.findAll();
+    public Page<Xona> getAll(Pageable pageable) {
+        return xonaRepository.findAll(pageable);
     }
 
     @Override

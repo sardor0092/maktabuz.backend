@@ -1,13 +1,11 @@
 package Idrok.net.maktab.uz.service.Impl;
-
-
 import Idrok.net.maktab.uz.entity.Uquvchi;
 import Idrok.net.maktab.uz.repository.UquvchiRepository;
 import Idrok.net.maktab.uz.service.UquvchiService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
 
 @Service
 public class UquvchiserviceImpl implements UquvchiService {
@@ -16,8 +14,8 @@ public class UquvchiserviceImpl implements UquvchiService {
     UquvchiRepository uquvchiRepository;
 
     @Override
-    public List<Uquvchi> getAll() {
-        return uquvchiRepository.findAll();
+    public Page<Uquvchi> getAll(Pageable pageable) {
+        return uquvchiRepository.findAll(pageable);
     }
 
     @Override

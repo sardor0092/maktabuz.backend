@@ -8,8 +8,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
 public class DarsServiceimpl implements DarsService {
 
@@ -17,8 +15,8 @@ public class DarsServiceimpl implements DarsService {
     DarsRepository darsRepository;
 
     @Override
-    public List<Dars> getAll(  ) {
-        return darsRepository.findAll();
+    public Page<Dars> getAll( Pageable pageable ) {
+        return darsRepository.findAll(pageable);
     }
 
     @Override

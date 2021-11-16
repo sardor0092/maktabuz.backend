@@ -1,19 +1,8 @@
 package Idrok.net.maktab.uz.service;
-
 import Idrok.net.maktab.uz.entity.Xona;
 
-import java.util.List;
 
-public interface XonaService {
+public interface XonaService extends GeneralService<Xona> {
 
-    /**
-     * Bu metod barcha postlarni yuklaydi
-     *
-     */
 
-    public List<Xona> getAll();
-    public Xona create(Xona xona);
-    public Xona update(Xona xona);
-    public  void delete(Xona xona);
-    public void deleteById(Long id);
 }

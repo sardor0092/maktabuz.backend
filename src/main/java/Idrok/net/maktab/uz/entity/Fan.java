@@ -13,7 +13,6 @@ public class Fan {
     private String nom;
 
     public Fan() {
-
     }
 
     public Fan(Long id, String nom) {

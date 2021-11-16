@@ -1,14 +1,10 @@
 package Idrok.net.maktab.uz.controller;
-
-
 import Idrok.net.maktab.uz.entity.Dars;
 import Idrok.net.maktab.uz.service.DarsService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-
-
 @RestController
 @RequestMapping("/api/dars")
 @CrossOrigin(origins = "*", maxAge = 3600)
@@ -18,8 +14,8 @@ public class DarsController {
 
 
     @GetMapping
-    public List<Dars> getAll(){
-        return darsService.getAll();
+    public Page<Dars> getAll(Pageable pageable){
+        return darsService.getAll(pageable );
     }
      @PostMapping
     public Dars create(@RequestBody Dars dars){
