@@ -10,38 +10,27 @@ import java.time.LocalDate;
 public class UquvYili {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
-    private Long Id;
+    private Long id;
     private LocalDate boshlanganVaqt;
     private LocalDate tugaganVaqt;
     private String izoh;
 
-    public UquvYili(String izoh) {
-        this.izoh = izoh;
-    }
-
-    public String getIzoh() {
-        return izoh;
-    }
-
-    public void setIzoh(String izoh) {
-        this.izoh = izoh;
-    }
-
     public UquvYili() {
     }
 
-    public UquvYili(Long id, LocalDate boshlanganVaqt, LocalDate tugaganVaqt) {
-        Id = id;
+    public UquvYili(Long id, LocalDate boshlanganVaqt, LocalDate tugaganVaqt, String izoh) {
+        this.id = id;
         this.boshlanganVaqt = boshlanganVaqt;
         this.tugaganVaqt = tugaganVaqt;
+        this.izoh = izoh;
     }
 
     public Long getId() {
-        return Id;
+        return id;
     }
 
     public void setId(Long id) {
-        Id = id;
+        this.id = id;
     }
 
     public LocalDate getBoshlanganVaqt() {
@@ -58,5 +47,13 @@ public class UquvYili {
 
     public void setTugaganVaqt(LocalDate tugaganVaqt) {
         this.tugaganVaqt = tugaganVaqt;
+    }
+
+    public String getIzoh() {
+        return izoh;
+    }
+
+    public void setIzoh(String izoh) {
+        this.izoh = izoh;
     }
 }
