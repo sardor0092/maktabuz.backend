@@ -39,4 +39,9 @@ public class TogarakServiceImpl implements TogarakService {
     public void deleteById(Long id) {
         togarakRepository.deleteById(id);
     }
+
+    @Override
+    public Page<Togarak> findAllByFanContainingIgnoreCase(String key, Pageable pageable) {
+        return  togarakRepository.findAllByFanContainingIgnoreCase(key, pageable);
+    }
 }

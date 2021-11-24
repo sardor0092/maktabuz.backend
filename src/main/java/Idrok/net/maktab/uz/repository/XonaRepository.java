@@ -9,5 +9,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface XonaRepository extends JpaRepository<Xona ,Long> {
+    Page<Xona> findAllByNomContainingIgnoreCase(String key ,Pageable pageable);
 
 }

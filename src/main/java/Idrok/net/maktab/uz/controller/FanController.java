@@ -15,8 +15,8 @@ public class FanController {
 @Autowired
 FanService fanService;
     @GetMapping
-    public Page<Fan> getAll(Pageable pageable) {
-        return fanService.getAll(pageable);
+    public Page<Fan> getAll(@RequestParam(required = false) String key, Pageable pageable) {
+        return fanService.findAllByNomContainingIgnoreCase(key, pageable);
 
     }
 

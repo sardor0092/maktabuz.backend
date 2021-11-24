@@ -36,4 +36,9 @@ public class XonaServiceImpl implements XonaService {
     public void deleteById(Long id) {
         xonaRepository.deleteById(id);
     }
+
+    @Override
+    public Page<Xona> findAllByNomContainingIgnoreCase(String key, Pageable pageable) {
+        return xonaRepository.findAllByNomContainingIgnoreCase(key, pageable);
+    }
 }

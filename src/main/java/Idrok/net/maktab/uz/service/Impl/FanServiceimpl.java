@@ -40,4 +40,9 @@ public class FanServiceimpl implements FanService {
         fanRepository.deleteById(id);
 
     }
+
+    @Override
+    public Page<Fan> findAllByNomContainingIgnoreCase(String key, Pageable pageable) {
+        return fanRepository.findAllByNomContainingIgnoreCase(key, pageable);
+    }
 }

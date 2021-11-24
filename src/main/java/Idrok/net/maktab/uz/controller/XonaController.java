@@ -14,8 +14,8 @@ public class XonaController {
     XonaService xonaService;
 
     @GetMapping
-    public Page<Xona> getAll(Pageable pageable) {
-        return xonaService.getAll(pageable);
+    public Page<Xona> getAll(@RequestParam(required = false)String key, Pageable pageable) {
+        return xonaService.findAllByNomContainingIgnoreCase(key, pageable);
     }
 
     @PostMapping

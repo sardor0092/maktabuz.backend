@@ -39,4 +39,9 @@ public class SinfServiceimpl implements SinfService {
         sinfRrepository.deleteById(id);
 
     }
+
+    @Override
+    public Page<Sinf> findAllByNomContainingIgnoreCase(String key, Pageable pageable) {
+        return sinfRrepository.findAllByNomContainingIgnoreCase(key, pageable);
+    }
 }
