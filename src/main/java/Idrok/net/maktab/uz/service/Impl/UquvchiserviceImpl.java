@@ -37,4 +37,9 @@ public class UquvchiserviceImpl implements UquvchiService {
     public void deleteById(Long id) {
         uquvchiRepository.deleteById(id);
     }
+
+    @Override
+    public Page<Uquvchi> findAllByIsmContainingIgnoreCase(String key, Pageable pageable) {
+        return uquvchiRepository.findAllByIsmContainingIgnoreCase(key, pageable);
+    }
 }
