@@ -14,7 +14,7 @@ public class UqtuvchiServiceImpl implements UqtuvchiService {
     UqtuvchiRepository uqtuvchiRepository;
 
     @Override
-    public Page<Uqtuvchi> getAll(Pageable pageable) {
+    public Page<Uqtuvchi> getAll( Pageable pageable) {
         return uqtuvchiRepository.findAll(pageable);
     }
 
@@ -36,5 +36,10 @@ public class UqtuvchiServiceImpl implements UqtuvchiService {
     @Override
     public void deleteById(Long id) {
         uqtuvchiRepository.deleteById(id);
+    }
+
+    @Override
+    public Page<Uqtuvchi> findAllByIsmContainingIgnoreCase(String key, Pageable pageable) {
+        return uqtuvchiRepository.findAllByIsmContainingIgnoreCase(key, pageable);
     }
 }

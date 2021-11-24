@@ -17,17 +17,20 @@ public class Dars {
     private Xona xona;
     @ManyToOne
     private UquvYili uquvYili;
+    @ManyToOne
+    private Sinf sinfxona;
 
     public Dars() {
     }
 
-    public Dars(Long id, Uquvchi guruh, Fan fan, Uqtuvchi uqtuvchi, Xona xona, UquvYili uquvYili) {
+    public Dars(Long id, Uquvchi uquvchi, Fan fan, Uqtuvchi uqtuvchi, Xona xona, UquvYili uquvYili, Sinf sinfxona) {
         this.id = id;
-        uquvchi = guruh;
+        this.uquvchi = uquvchi;
         this.fan = fan;
         this.uqtuvchi = uqtuvchi;
         this.xona = xona;
         this.uquvYili = uquvYili;
+        this.sinfxona = sinfxona;
     }
 
     public Long getId() {
@@ -38,12 +41,12 @@ public class Dars {
         this.id = id;
     }
 
-    public Uquvchi getGuruh() {
+    public Uquvchi getUquvchi() {
         return uquvchi;
     }
 
-    public void setGuruh(Uquvchi guruh) {
-        uquvchi = guruh;
+    public void setUquvchi(Uquvchi uquvchi) {
+        this.uquvchi = uquvchi;
     }
 
     public Fan getFan() {
@@ -76,5 +79,13 @@ public class Dars {
 
     public void setUquvYili(UquvYili uquvYili) {
         this.uquvYili = uquvYili;
+    }
+
+    public Sinf getSinfxona() {
+        return sinfxona;
+    }
+
+    public void setSinfxona(Sinf sinfxona) {
+        this.sinfxona = sinfxona;
     }
 }

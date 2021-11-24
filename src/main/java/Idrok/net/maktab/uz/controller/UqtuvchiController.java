@@ -15,9 +15,10 @@ public class UqtuvchiController {
     @Autowired
     UqtuvchiService uqtuvchiService;
 
-    @GetMapping
-    public Page<Uqtuvchi> getAll(Pageable pageable) {
-        return uqtuvchiService.getAll(pageable);
+
+ @GetMapping()
+    public Page<Uqtuvchi> getAllByIsm(@RequestParam(required = false) String key, Pageable pageable) {
+        return uqtuvchiService.findAllByIsmContainingIgnoreCase( key, pageable);
 
     }
 
