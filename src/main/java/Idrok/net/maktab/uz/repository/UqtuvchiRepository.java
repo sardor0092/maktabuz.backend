@@ -3,14 +3,15 @@ import Idrok.net.maktab.uz.entity.Uqtuvchi;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
+
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UqtuvchiRepository extends JpaRepository<Uqtuvchi, Long> {
-    Page<Uqtuvchi> findAllByIsmContainingIgnoreCase(String key, Pageable pageable);
-    Page<Uqtuvchi> findAllByFamiliyaContainingIgnoreCase(String key, Pageable pageable);
-    Page<Uqtuvchi> findAllByYoshIsGreaterThanEqual(String key, Pageable pageable);
+//    Page<Uqtuvchi>  findAllByIsmContainsIgnoreCaseOrFamiliyaContainsIgnoreCase(String key ,String ism , Pageable pageable);
 
+Page<Uqtuvchi> findAllByIsmContainsIgnoreCaseOrFamiliyaContainsIgnoreCaseOrIdOrMaoshOrYoshOrJinsIgnoreCase
+        (String ism, String fam,Long id,int maosh, int yosh ,String jins ,Pageable pageable);
 
 
 }

@@ -39,7 +39,17 @@ public class UqtuvchiServiceImpl implements UqtuvchiService {
     }
 
     @Override
-    public Page<Uqtuvchi> findAllByIsmContainingIgnoreCase(String key, Pageable pageable) {
-        return uqtuvchiRepository.findAllByIsmContainingIgnoreCase(key, pageable);
+    public Page<Uqtuvchi> findAllByIsmContainsIgnoreCaseOrFamiliyaContainsIgnoreCaseOrIdOrMaoshOrYoshOrJinsIgnoreCase(String key,  Pageable pageable) {
+        try {
+            Long n=Long.parseLong(key);
+            int i=Integer.parseInt(key);
+            return uqtuvchiRepository.findAllByIsmContainsIgnoreCaseOrFamiliyaContainsIgnoreCaseOrIdOrMaoshOrYoshOrJinsIgnoreCase(key ,key,n,i,i ,key,pageable);
+        }
+        catch (Exception b){
+            return uqtuvchiRepository.findAllByIsmContainsIgnoreCaseOrFamiliyaContainsIgnoreCaseOrIdOrMaoshOrYoshOrJinsIgnoreCase(key ,key,(long) -1,-1,-1,key,pageable);
+
+
+        }
+
     }
 }

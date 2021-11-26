@@ -1,7 +1,6 @@
 package Idrok.net.maktab.uz.controller;
 
 import Idrok.net.maktab.uz.entity.Fan;
-import Idrok.net.maktab.uz.entity.Uqtuvchi;
 import Idrok.net.maktab.uz.service.FanService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -17,7 +16,6 @@ FanService fanService;
     @GetMapping
     public Page<Fan> getAll(@RequestParam(required = false) String key, Pageable pageable) {
         return fanService.findAllByNomContainingIgnoreCase(key, pageable);
-
     }
 
     @PostMapping
