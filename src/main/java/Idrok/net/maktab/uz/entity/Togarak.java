@@ -1,9 +1,6 @@
 package Idrok.net.maktab.uz.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Entity
@@ -12,17 +9,20 @@ public class Togarak {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private LocalDateTime soat;
-    private String fan;
-    private String oqtuvchi;
+    @ManyToOne
+    private Fan fan;
+    @ManyToOne
+    private  Uqtuvchi uqtuvchi;
+
 
     public Togarak() {
     }
 
-    public Togarak(Long id, LocalDateTime soat, String fan, String oqtuvchi) {
+    public Togarak(Long id, LocalDateTime soat, Fan fan, Uqtuvchi uqtuvchi) {
         this.id = id;
         this.soat = soat;
         this.fan = fan;
-        this.oqtuvchi = oqtuvchi;
+        this.uqtuvchi = uqtuvchi;
     }
 
     public Long getId() {
@@ -41,19 +41,19 @@ public class Togarak {
         this.soat = soat;
     }
 
-    public String getFan() {
+    public Fan getFan() {
         return fan;
     }
 
-    public void setFan(String fan) {
+    public void setFan(Fan fan) {
         this.fan = fan;
     }
 
-    public String getOqtuvchi() {
-        return oqtuvchi;
+    public Uqtuvchi getUqtuvchi() {
+        return uqtuvchi;
     }
 
-    public void setOqtuvchi(String oqtuvchi) {
-        this.oqtuvchi = oqtuvchi;
+    public void setUqtuvchi(Uqtuvchi uqtuvchi) {
+        this.uqtuvchi = uqtuvchi;
     }
 }

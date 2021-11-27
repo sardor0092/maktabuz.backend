@@ -48,10 +48,10 @@ public class DarsServiceimpl implements DarsService {
 //            Long o=Long.parseLong(key);
 //            int u=Integer.parseInt(key);
 //
-//            return darsRepository.findAllByFanContainsIgnoreCaseOrSinfxonaContainsIgnoreCaseOrUqtuvchiContainsIgnoreCaseOrUquvchiContainsIgnoreCaseOrXonaContainsIgnoreCaseOrId(key, key,key ,key,key,o,pageable);
+//            return darsRepository.findAllByFanContainsIgnoreCaseOrSinfxonaContainsIgnoreCaseOrUqtuvchiContainsIgnoreCaseOrUquvchiContainsIgnoreCaseOrXonaContainsIgnoreCaseOrId(key, key,key ,key,key,key,o,pageable);
 //        }
 //        catch (Exception b) {
-//            return darsRepository.findAllByFanContainsIgnoreCaseOrSinfxonaContainsIgnoreCaseOrUqtuvchiContainsIgnoreCaseOrUquvchiContainsIgnoreCaseOrXonaContainsIgnoreCaseOrId(key, key, key, key, key, (long) -1, pageable);
+//            return darsRepository.findAllByFanContainsIgnoreCaseOrSinfxonaContainsIgnoreCaseOrUqtuvchiContainsIgnoreCaseOrUquvchiContainsIgnoreCaseOrXonaContainsIgnoreCaseOrId(key, key, key, key, key,key , (long)-1, pageable);
 //
 //
 //        }}

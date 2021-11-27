@@ -16,7 +16,7 @@ public class DarsController {
     @GetMapping
     public Page<Dars> getAll(Pageable pageable){
 
-        return darsService.getAll( pageable);
+        return darsService.getAll(pageable);
     }
 
 
