@@ -8,5 +8,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TogarakRepository extends JpaRepository<Togarak, Long> {
-    Page<Togarak> findAllByFanContainingIgnoreCase(String key ,Pageable pageable);
+    Page<Togarak> findAllByFanContainsIgnoreCaseOrOqtuvchiContainsIgnoreCase(String key ,String key1 ,Pageable pageable);
 }

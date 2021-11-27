@@ -41,7 +41,7 @@ public class TogarakServiceImpl implements TogarakService {
     }
 
     @Override
-    public Page<Togarak> findAllByFanContainingIgnoreCase(String key, Pageable pageable) {
-        return  togarakRepository.findAllByFanContainingIgnoreCase(key, pageable);
+    public Page<Togarak> findAllByFanContainsIgnoreCaseOrOqtuvchiContainsIgnoreCase(String key , Pageable pageable) {
+        return  togarakRepository.findAllByFanContainsIgnoreCaseOrOqtuvchiContainsIgnoreCase(key ,key, pageable);
     }
 }

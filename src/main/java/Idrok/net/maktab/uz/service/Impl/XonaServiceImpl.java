@@ -1,4 +1,5 @@
 package Idrok.net.maktab.uz.service.Impl;
+import Idrok.net.maktab.uz.entity.Uqtuvchi;
 import Idrok.net.maktab.uz.entity.Xona;
 import Idrok.net.maktab.uz.repository.XonaRepository;
 import Idrok.net.maktab.uz.service.XonaService;
@@ -38,7 +39,17 @@ public class XonaServiceImpl implements XonaService {
     }
 
     @Override
-    public Page<Xona> findAllByNomContainingIgnoreCase(String key, Pageable pageable) {
-        return xonaRepository.findAllByNomContainingIgnoreCase(key, pageable);
+    public Page<Xona> findAllByNomContainsIgnoreCaseOrBinoContainsIgnoreCaseOrSigim(String key, Pageable pageable) {
+        try {
+            Long n=Long.parseLong(key);
+            int i=Integer.parseInt(key);
+            return xonaRepository.findAllByNomContainsIgnoreCaseOrBinoContainsIgnoreCaseOrSigim(key ,key,i,pageable);
+        }
+        catch (Exception b){
+            return xonaRepository.findAllByNomContainsIgnoreCaseOrBinoContainsIgnoreCaseOrSigim(key,key,-1,pageable);
+
+
+        }
+
     }
 }

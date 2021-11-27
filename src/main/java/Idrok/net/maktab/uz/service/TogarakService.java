@@ -4,6 +4,6 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 
 public interface TogarakService extends GeneralService<Togarak, Number>{
-    Page<Togarak> findAllByFanContainingIgnoreCase(String key, Pageable pageable);
+    Page<Togarak> findAllByFanContainsIgnoreCaseOrOqtuvchiContainsIgnoreCase(String key , Pageable pageable);
 
 }
