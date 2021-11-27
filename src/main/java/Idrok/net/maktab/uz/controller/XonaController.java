@@ -15,6 +15,7 @@ public class XonaController {
 
     @GetMapping
     public Page<Xona> getAll(@RequestParam(required = false)String key, Pageable pageable) {
+        if(key == null) key = "";
         return xonaService.findAllByNomContainingIgnoreCase(key, pageable);
     }
 

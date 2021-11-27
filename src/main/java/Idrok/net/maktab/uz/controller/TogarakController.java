@@ -16,6 +16,7 @@ public class TogarakController {
 
     @GetMapping
     public Page<Togarak> getAll(@RequestParam String key, Pageable pageable) {
+        if(key == null) key = "";
         return togarakService.findAllByFanContainingIgnoreCase(key, pageable);
     }
 

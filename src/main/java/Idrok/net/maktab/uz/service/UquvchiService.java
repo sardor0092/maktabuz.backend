@@ -6,7 +6,7 @@ import org.springframework.data.domain.Pageable;
 
 public interface UquvchiService extends GeneralService<Uquvchi, Number> {
 
-    public Page<Uquvchi> findAllByIsmContainingIgnoreCase(String key, Pageable pageable);
+    Page<Uquvchi> findAllByIsmContainsIgnoreCaseOrFamiliyaContainsIgnoreCaseOrSharifContainsIgnoreCaseOrIdOrYoshOrSinf (String key ,Pageable pageable);
 
 
 }

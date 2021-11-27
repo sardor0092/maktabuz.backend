@@ -1,6 +1,7 @@
 package Idrok.net.maktab.uz.service.Impl;
 
 import Idrok.net.maktab.uz.entity.Dars;
+
 import Idrok.net.maktab.uz.repository.DarsRepository;
 import Idrok.net.maktab.uz.service.DarsService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,4 +41,18 @@ public class DarsServiceimpl implements DarsService {
         darsRepository.deleteById(id);
 
     }
+
+//    @Override
+//    public Page<Dars> findAllByFanContainsIgnoreCaseOrSinfxonaContainsIgnoreCaseOrUqtuvchiContainsIgnoreCaseOrUquvchiContainsIgnoreCaseOrXonaContainsIgnoreCaseOrId(String key, Pageable pageable) {
+//        try {
+//            Long o=Long.parseLong(key);
+//            int u=Integer.parseInt(key);
+//
+//            return darsRepository.findAllByFanContainsIgnoreCaseOrSinfxonaContainsIgnoreCaseOrUqtuvchiContainsIgnoreCaseOrUquvchiContainsIgnoreCaseOrXonaContainsIgnoreCaseOrId(key, key,key ,key,key,o,pageable);
+//        }
+//        catch (Exception b) {
+//            return darsRepository.findAllByFanContainsIgnoreCaseOrSinfxonaContainsIgnoreCaseOrUqtuvchiContainsIgnoreCaseOrUquvchiContainsIgnoreCaseOrXonaContainsIgnoreCaseOrId(key, key, key, key, key, (long) -1, pageable);
+//
+//
+//        }}
 }

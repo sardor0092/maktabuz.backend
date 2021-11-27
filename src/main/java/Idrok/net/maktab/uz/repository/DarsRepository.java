@@ -1,12 +1,27 @@
 package Idrok.net.maktab.uz.repository;
-
 import Idrok.net.maktab.uz.entity.Dars;
-//import org.springframework.data.domain.Page;
-//import org.springframework.data.domain.Pageable;
+import Idrok.net.maktab.uz.entity.Uqtuvchi;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DarsRepository extends JpaRepository<Dars,Long> {
-//    Page<Dars> findAllByFanContaining( Pageable pageable);
+
+
+//    Page<Dars> findAllByIsmContainsIgnoreCaseOrFamiliyaContainsIgnoreCaseOrIdOrMaoshOrYoshOrJinsIgnoreCase
+//            (String ism, String fam, Long id, int maosh, int yosh , String jins , Pageable pageable);
+//
+
+
+//    Page<Dars> findAllByFanContainsIgnoreCaseOrSinfxonaContainsIgnoreCaseOrUqtuvchiContainsIgnoreCaseOrUquvchiContainsIgnoreCaseOrXonaContainsIgnoreCaseOrId
+//            (String fan,String sinf,String oqtuvchi,String oquvchi,String xona ,int id);
+//
+//
+//    Page<Dars> findAllByFanContainsIgnoreCaseOrSinfxonaContainsIgnoreCaseOrUqtuvchiContainsIgnoreCaseOrUquvchiContainsIgnoreCaseOrXonaContainsIgnoreCaseOrId
+//            (String key, String key1, String key2, String key3, String key4, Long o, Pageable pageable);
 }
+
+
+

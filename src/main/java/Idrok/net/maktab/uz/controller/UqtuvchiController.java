@@ -19,6 +19,7 @@ public class UqtuvchiController {
 
  @GetMapping()
     public Page<Uqtuvchi> getAllByIsm(@RequestParam(required = false) String key, Pageable pageable) {
+     if(key == null) key = "";
         return uqtuvchiService.findAllByIsmContainsIgnoreCaseOrFamiliyaContainsIgnoreCaseOrIdOrMaoshOrYoshOrJinsIgnoreCase( key, pageable);
 
 

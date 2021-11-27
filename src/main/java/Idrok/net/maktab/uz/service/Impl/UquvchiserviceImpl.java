@@ -39,7 +39,21 @@ public class UquvchiserviceImpl implements UquvchiService {
     }
 
     @Override
-    public Page<Uquvchi> findAllByIsmContainingIgnoreCase(String key, Pageable pageable) {
-        return uquvchiRepository.findAllByIsmContainingIgnoreCase(key, pageable);
+    public Page<Uquvchi> findAllByIsmContainsIgnoreCaseOrFamiliyaContainsIgnoreCaseOrSharifContainsIgnoreCaseOrIdOrYoshOrSinf(String key, Pageable pageable) {
+        try {
+            Long o=Long.parseLong(key);
+            int u=Integer.parseInt(key);
+
+            return uquvchiRepository.findAllByIsmContainsIgnoreCaseOrFamiliyaContainsIgnoreCaseOrSharifContainsIgnoreCaseOrIdOrYoshOrSinf(key, key,key ,o,u,u,pageable);
+        }
+        catch (Exception b){
+            return uquvchiRepository.findAllByIsmContainsIgnoreCaseOrFamiliyaContainsIgnoreCaseOrSharifContainsIgnoreCaseOrIdOrYoshOrSinf(key, key,key ,(long)-1,-1,-1,pageable);
+
+
+
+        }
+
     }
+
+
 }

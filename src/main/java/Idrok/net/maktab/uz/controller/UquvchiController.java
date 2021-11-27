@@ -18,7 +18,8 @@ public class UquvchiController {
     UquvchiService uquvchiService;
     @GetMapping()
     public Page<Uquvchi> getAllByIsm(@RequestParam(required = false) String key, Pageable pageable) {
-        return uquvchiService.findAllByIsmContainingIgnoreCase( key, pageable);
+        if(key == null) key = "";
+        return uquvchiService.findAllByIsmContainsIgnoreCaseOrFamiliyaContainsIgnoreCaseOrSharifContainsIgnoreCaseOrIdOrYoshOrSinf( key, pageable);
 
     }
 

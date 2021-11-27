@@ -17,6 +17,7 @@ public class SinfController {
 
     @GetMapping
     public Page<Sinf> getAll(@RequestParam (required = false)String key, Pageable pageable) {
+        if(key == null) key = "";
         return sinfService.findAllByNomContainingIgnoreCase(key, pageable);
 
     }
