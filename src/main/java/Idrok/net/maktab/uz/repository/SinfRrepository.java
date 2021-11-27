@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface SinfRrepository extends JpaRepository<Sinf,Long> {
-    Page<Sinf> findAllByNomContainingIgnoreCase(String key, Pageable pageable);
+    Page<Sinf> findAllByNomContainsIgnoreCaseOrId(String key, Long n, Pageable pageable);
 
 }

@@ -5,7 +5,7 @@ import org.springframework.data.domain.Pageable;
 
 
 public interface XonaService extends GeneralService<Xona, Number> {
-    Page<Xona>findAllByNomContainsIgnoreCaseOrBinoContainsIgnoreCaseOrSigim(String key, Pageable pageable);
+    Page<Xona>findAllByNomContainsIgnoreCaseOrBinoContainsIgnoreCaseOrSigimOrId(String key, Pageable pageable);
 
 
 }

@@ -16,7 +16,7 @@ FanService fanService;
     @GetMapping
     public Page<Fan> getAll(@RequestParam(required = false) String key, Pageable pageable) {
         if(key == null) key = "";
-        return fanService.findAllByNomContainingIgnoreCase(key, pageable);
+        return fanService.findAllByNomContainsIgnoreCaseOrId(key, pageable);
     }
 
     @PostMapping

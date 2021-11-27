@@ -39,14 +39,14 @@ public class XonaServiceImpl implements XonaService {
     }
 
     @Override
-    public Page<Xona> findAllByNomContainsIgnoreCaseOrBinoContainsIgnoreCaseOrSigim(String key, Pageable pageable) {
+    public Page<Xona> findAllByNomContainsIgnoreCaseOrBinoContainsIgnoreCaseOrSigimOrId(String key, Pageable pageable) {
         try {
             Long n=Long.parseLong(key);
             int i=Integer.parseInt(key);
-            return xonaRepository.findAllByNomContainsIgnoreCaseOrBinoContainsIgnoreCaseOrSigim(key ,key,i,pageable);
+            return xonaRepository.findAllByNomContainsIgnoreCaseOrBinoContainsIgnoreCaseOrSigimOrId(key ,key,i,n,pageable);
         }
         catch (Exception b){
-            return xonaRepository.findAllByNomContainsIgnoreCaseOrBinoContainsIgnoreCaseOrSigim(key,key,-1,pageable);
+            return xonaRepository.findAllByNomContainsIgnoreCaseOrBinoContainsIgnoreCaseOrSigimOrId(key,key,-1,(long)-1,pageable);
 
 
         }

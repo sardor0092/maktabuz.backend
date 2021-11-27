@@ -42,7 +42,17 @@ public class FanServiceimpl implements FanService {
     }
 
     @Override
-    public Page<Fan> findAllByNomContainingIgnoreCase(String key, Pageable pageable) {
-        return fanRepository.findAllByNomContainingIgnoreCase(key, pageable);
+    public Page<Fan> findAllByNomContainsIgnoreCaseOrId(String key, Pageable pageable) {
+
+        try {
+            Long n=Long.parseLong(key);
+            int i=Integer.parseInt(key);
+            return fanRepository.findAllByNomContainsIgnoreCaseOrId(key,n , pageable);
+        }
+        catch (Exception f){
+
+            return fanRepository.findAllByNomContainsIgnoreCaseOrId(key,(long)-1 , pageable);
+        }
+
     }
 }

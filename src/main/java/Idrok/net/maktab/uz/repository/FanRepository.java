@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface FanRepository extends JpaRepository<Fan,Long> {
-    Page<Fan> findAllByNomContainingIgnoreCase(String key , Pageable pageable);
+    Page<Fan> findAllByNomContainsIgnoreCaseOrId(String key ,Long id , Pageable pageable);
 
 
 }

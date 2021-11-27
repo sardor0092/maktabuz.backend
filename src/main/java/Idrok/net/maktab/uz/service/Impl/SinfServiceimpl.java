@@ -41,7 +41,18 @@ public class SinfServiceimpl implements SinfService {
     }
 
     @Override
-    public Page<Sinf> findAllByNomContainingIgnoreCase(String key, Pageable pageable) {
-        return sinfRrepository.findAllByNomContainingIgnoreCase(key, pageable);
+    public Page<Sinf> findAllByNomContainsIgnoreCaseOrId(String key, Pageable pageable) {
+
+        try {
+            Long n=Long.parseLong(key);
+            int i=Integer.parseInt(key);
+            return sinfRrepository.findAllByNomContainsIgnoreCaseOrId(key,n, pageable);
+        }
+        catch (Exception t){
+            return sinfRrepository.findAllByNomContainsIgnoreCaseOrId(key,(long)-1, pageable);
+
+
+        }
+
     }
 }

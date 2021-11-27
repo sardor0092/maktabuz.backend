@@ -41,7 +41,18 @@ public class TogarakServiceImpl implements TogarakService {
     }
 
     @Override
-    public Page<Togarak> findAllByFanContainsIgnoreCaseOrOqtuvchiContainsIgnoreCase(String key , Pageable pageable) {
-        return  togarakRepository.findAllByFanContainsIgnoreCaseOrOqtuvchiContainsIgnoreCase(key ,key, pageable);
+    public Page<Togarak> findAllByFanContainsIgnoreCaseOrOqtuvchiContainsIgnoreCaseOrId(String key , Pageable pageable) {
+        try {
+            Long n=Long.parseLong(key);
+            int i=Integer.parseInt(key);
+            return togarakRepository.findAllByFanContainsIgnoreCaseOrOqtuvchiContainsIgnoreCaseOrId(key ,key,n,pageable);
+        }
+        catch (Exception b){
+            return togarakRepository.findAllByFanContainsIgnoreCaseOrOqtuvchiContainsIgnoreCaseOrId(key,key,(long)-1,pageable);
+
+
+        }
+
+
     }
 }
