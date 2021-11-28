@@ -7,6 +7,7 @@ import Idrok.net.maktab.uz.service.vm.UserParolVM;
 import Idrok.net.maktab.uz.service.vm.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -38,6 +39,38 @@ public class UserServiceImpl implements UserService {
         return userRepository.findById(id);
     }
 
+
+
+
+
+
+    @Override
+    public User getCurrentUserEntity(){
+        String username = getPrincipal();
+        if (username != null)
+            return userRepository.findByLogin(username).orElse(null);
+        return null;
+    }
+
+
+
+
+    private String getPrincipal() {
+        String userName = null;
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+
+        if (principal instanceof UserDetails) {
+            userName = ((UserDetails) principal).getUsername();
+        } else {
+            userName = principal.toString();
+        }
+        return userName;
+    }
+
+
+
+
+
     @Override
     public UserDTO create(UserDTO userDTO) {
         return null;
@@ -48,15 +81,27 @@ public class UserServiceImpl implements UserService {
         return null;
     }
 
+
+
+
+
     @Override
     public void delete(UserDTO userDTO) {
 
     }
 
+
+
+
     @Override
     public void deleteById(Long id) {
 
     }
+
+
+
+
+
 
     @Override
     public void changePassword(UserParolVM userParolVM) {
@@ -68,6 +113,14 @@ public class UserServiceImpl implements UserService {
             throw new RuntimeException("xatolik ro'y berdi");
         }
 
+    }
+
+    @Override
+    public UserDTO getCurrentUser(){
+        String username = getPrincipal();
+        if (username != null)
+            return userRepository.findByLogin(username).map(UserDTO::new).orElse(null);
+        return null;
     }
 
     @Override
