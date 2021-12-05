@@ -1,6 +1,4 @@
 package Idrok.net.maktab.uz.security;
-
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -28,7 +26,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired
     private JWTFilter jwtFilter;
 
-
     @Autowired
     UserProvider userProvider;
 
@@ -42,8 +39,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
     }
-
-
+    
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http = http.cors().and().csrf().disable();
@@ -55,6 +51,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers("/api/kassa").hasAnyRole(Lavozim.ADMIN.toString(), Lavozim.DIREKTOR.toString())
                 .antMatchers("/api/account/authenticate").permitAll()
                 .antMatchers("/api/account/register").permitAll()
+
 
 
                 .anyRequest().authenticated()
