@@ -1,5 +1,5 @@
 package Idrok.net.maktab.uz.service.Impl;
-
+import Idrok.net.maktab.uz.entity.Lavozim;
 import Idrok.net.maktab.uz.entity.User;
 import Idrok.net.maktab.uz.repository.UserRepository;
 import Idrok.net.maktab.uz.service.dto.UserDTO;
@@ -8,10 +8,9 @@ import Idrok.net.maktab.uz.service.vm.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-
-import java.util.List;
-import java.util.Optional;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Service
@@ -20,10 +19,12 @@ public class UserServiceImpl implements UserService {
     @Autowired
     UserRepository userRepository;
 
+    @Autowired
+    PasswordEncoder encoder;
     @Override
     public List<UserDTO> getAll() {
 
-        return userRepository.findAll().
+        return userRepository.findAllByLavozimlarContains(Lavozim.MANAGER).
                 stream()
                 .map(UserDTO::new)
                 .collect(Collectors.toList());
@@ -35,14 +36,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
+    public UserDTO create(UserDTO userDTO) {
+        return null;
+    }
+
+    @Override
     public Optional<User> getByIdEntity(Long id) {
         return userRepository.findById(id);
     }
-
-
-
-
-
 
     @Override
     public User getCurrentUserEntity(){
@@ -51,9 +52,6 @@ public class UserServiceImpl implements UserService {
             return userRepository.findByLogin(username).orElse(null);
         return null;
     }
-
-
-
 
     private String getPrincipal() {
         String userName = null;
@@ -67,42 +65,30 @@ public class UserServiceImpl implements UserService {
         return userName;
     }
 
-
-
-
-
     @Override
-    public UserDTO create(UserDTO userDTO) {
-        return null;
+    public UserDTO create(User user) {
+        user.setParol(encoder.encode(user.getParol()));
+        user.setLavozimlar(Set.of(Lavozim.MANAGER));
+        return new UserDTO(userRepository.save(user));
+
     }
 
     @Override
     public UserDTO update(UserDTO userDTO) {
         return null;
+
     }
-
-
-
-
 
     @Override
     public void delete(UserDTO userDTO) {
 
+
     }
-
-
-
-
     @Override
     public void deleteById(Long id) {
+        userRepository.deleteById(id);
 
     }
-
-
-
-
-
-
     @Override
     public void changePassword(UserParolVM userParolVM) {
         Optional<User> user = userRepository.findByLogin(userParolVM.getLogin());

@@ -3,16 +3,17 @@ package Idrok.net.maktab.uz.service.dto;
 import Idrok.net.maktab.uz.entity.User;
 
 public class UserDTO {
+
     private Long id;
     private String ism;
     private String familiya;
     private String login;
 
-
     public UserDTO() {
+
     }
 
-    public UserDTO(User user){
+    public UserDTO(User user) {
         this.id = user.getId();
         this.ism = user.getIsm();
         this.familiya = user.getFamiliya();
@@ -47,8 +48,10 @@ public class UserDTO {
         return login;
     }
 
+
     public void setLogin(String login) {
         this.login = login;
     }
+
 
 }

@@ -8,6 +8,8 @@ import java.util.Optional;
 public interface UserService extends GeneralService<UserDTO,Long>{
     public Optional<User> getByIdEntity(Long id);
 
+    UserDTO create(User user);
+
     User getCurrentUserEntity();
 
     public void changePassword(UserParolVM userParolVM);

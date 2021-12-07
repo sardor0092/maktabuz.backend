@@ -32,25 +32,31 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(userProvider).passwordEncoder(passwordEncoder());
+
     }
 
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
         return super.authenticationManagerBean();
+
     }
     
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http = http.cors().and().csrf().disable();
-
         http
+
+
 //                .addFilterBefore(corsFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
 
 //                .antMatchers("/api/kassa").hasAnyRole(Lavozim.ADMIN.toString(), Lavozim.DIREKTOR.toString())
                 .antMatchers("/api/account/authenticate").permitAll()
                 .antMatchers("/api/account/register").permitAll()
+                
+
+
 
 
 
@@ -70,8 +76,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web
-                .ignoring()
+
+        web   .ignoring()
                 .antMatchers(HttpMethod.OPTIONS, "/**")
                 .antMatchers("/app/**/*.{js,html}")
                 .antMatchers("/i18n/**")
@@ -102,6 +108,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         config.addAllowedMethod("*");
         source.registerCorsConfiguration("/**", config);
         return new CorsFilter(source);
+
     }
+
 }
 
