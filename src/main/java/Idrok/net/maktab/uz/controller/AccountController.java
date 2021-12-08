@@ -1,5 +1,6 @@
 package Idrok.net.maktab.uz.controller;
 
+import Idrok.net.maktab.uz.entity.User;
 import Idrok.net.maktab.uz.repository.UserRepository;
 import Idrok.net.maktab.uz.security.JwtTokenUtil;
 import Idrok.net.maktab.uz.security.Token;
@@ -67,6 +68,8 @@ public class AccountController {
     public ResponseEntity<UserDTO> getCurrentUser(){
         return ResponseEntity.ok(userService.getCurrentUser());
     }
+
+
 
 
 

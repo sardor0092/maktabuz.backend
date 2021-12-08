@@ -20,9 +20,8 @@ import org.springframework.web.filter.CorsFilter;
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
-    //
-//    @Autowired
-//CorsFilter corsFilter;
+
+
     @Autowired
     private JWTFilter jwtFilter;
 

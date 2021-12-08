@@ -1,5 +1,4 @@
 package Idrok.net.maktab.uz.service.Impl;
-import Idrok.net.maktab.uz.entity.Uqtuvchi;
 import Idrok.net.maktab.uz.entity.Xona;
 import Idrok.net.maktab.uz.repository.XonaRepository;
 import Idrok.net.maktab.uz.service.XonaService;
