@@ -3,8 +3,6 @@ import Idrok.net.maktab.uz.entity.User;
 import Idrok.net.maktab.uz.service.dto.UserDTO;
 import Idrok.net.maktab.uz.service.vm.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.autoconfigure.security.SecurityProperties;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.*;
 import java.util.List;

@@ -53,6 +53,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 //                .antMatchers("/api/kassa").hasAnyRole(Lavozim.ADMIN.toString(), Lavozim.DIREKTOR.toString())
                 .antMatchers("/api/account/authenticate").permitAll()
                 .antMatchers("/api/account/register").permitAll()
+                .antMatchers(HttpMethod.GET,"/api/account/login").hasAuthority("(\"ADMIN\", \"DIRECTOR\")")
                 
 
 

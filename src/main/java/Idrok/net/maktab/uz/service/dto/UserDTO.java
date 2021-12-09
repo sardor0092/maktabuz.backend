@@ -10,6 +10,10 @@ public class UserDTO {
     private String login;
 
 
+    private  Boolean aktiv;
+
+
+
     public UserDTO() {
 
     }
@@ -19,6 +23,7 @@ public class UserDTO {
         this.ism = user.getIsm();
         this.familiya = user.getFamiliya();
         this.login = user.getLogin();
+        this.aktiv = user.getAktiv();
     }
 
     public Long getId() {
@@ -47,6 +52,13 @@ public class UserDTO {
 
     public String getLogin() {
         return login;
+    }
+    public Boolean isAktiv() {
+        return aktiv;
+    }
+
+    public void setAktiv(Boolean aktiv) {
+        this.aktiv = aktiv;
     }
 
 
