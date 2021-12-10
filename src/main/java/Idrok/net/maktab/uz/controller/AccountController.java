@@ -30,7 +30,6 @@ public class AccountController {
     @Autowired
     private UserService userService;
 
-
     @Autowired
     private UserRepository userRepository;
 
@@ -39,7 +38,6 @@ public class AccountController {
 
     @Autowired
     PasswordEncoder encoder;
-
 
     @PostMapping("/authenticate")
     public ResponseEntity<Token> login(@RequestBody UserMaxsus userMaxsus) throws Exception {
@@ -58,8 +56,6 @@ public class AccountController {
         return ResponseEntity.ok(new Token(token));
 
     }
-
-
     @PostMapping("/register")
     public ResponseEntity<UserDTO> register(@RequestBody User userDTO) {
         if (userDTO.getId() != null)
@@ -82,17 +78,15 @@ public class AccountController {
         return userService.update(current);
     }
 
-
     @PutMapping("/password")
-    public UserDTO updatePassword(@RequestBody UserParolVM parol) {
+    public ResponseEntity<?> updatePassword(@RequestBody UserParolVM parol) {
 
         User current = userService.getCurrentUserEntity();
         if(current.getParol().equals(encoder.encode((parol.getEskiParol())))){
             current.setParol(encoder.encode(parol.getYangiParol()));
-            return userService.update(current);
+            return ResponseEntity.ok(userService.update(current));
 
         }
-
-        throw new RuntimeException("Xatolik");
+        return  ResponseEntity.badRequest().build();
     }
  }

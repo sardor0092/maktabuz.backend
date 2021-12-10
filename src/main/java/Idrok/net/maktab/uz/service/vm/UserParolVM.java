@@ -5,6 +5,17 @@ public class UserParolVM {
     private String login;
     private String eskiParol;
     private String yangiParol;
+    private  String confirm;
+
+    public String getConfirm() {
+        return confirm;
+    }
+
+    public void setConfirm(String confirm) {
+        this.confirm = confirm;
+    }
+
+
 
     public String getLogin() {
         return login;
