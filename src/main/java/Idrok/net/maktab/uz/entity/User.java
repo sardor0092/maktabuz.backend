@@ -1,5 +1,7 @@
 package Idrok.net.maktab.uz.entity;
 
+import Idrok.net.maktab.uz.service.dto.UserDTO;
+
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
@@ -35,6 +37,8 @@ public class User {
     private Set<Lavozim> lavozimlar;
 
     private Boolean aktiv;
+
+
 
     public Long getId() {
         return id;

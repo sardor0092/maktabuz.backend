@@ -8,7 +8,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface UqtuvchiRepository extends JpaRepository<Uqtuvchi, Long> {
-//    Page<Uqtuvchi>  findAllByIsmContainsIgnoreCaseOrFamiliyaContainsIgnoreCase(String key ,String ism , Pageable pageable);
 
 Page<Uqtuvchi> findAllByIsmContainsIgnoreCaseOrFamiliyaContainsIgnoreCaseOrIdOrMaoshOrYoshOrJinsIgnoreCase
         (String ism, String fam,Long id,int maosh, int yosh ,String jins ,Pageable pageable);

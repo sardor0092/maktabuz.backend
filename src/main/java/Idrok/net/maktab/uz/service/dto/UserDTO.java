@@ -1,6 +1,9 @@
 package Idrok.net.maktab.uz.service.dto;
 
+import Idrok.net.maktab.uz.entity.Lavozim;
 import Idrok.net.maktab.uz.entity.User;
+
+import java.util.Set;
 
 public class UserDTO {
 
@@ -8,11 +11,8 @@ public class UserDTO {
     private String ism;
     private String familiya;
     private String login;
-
-
-    private  Boolean aktiv;
-
-
+    private Set<Lavozim> lavozimlar;
+    private Boolean aktiv;
 
     public UserDTO() {
 
@@ -24,6 +24,8 @@ public class UserDTO {
         this.familiya = user.getFamiliya();
         this.login = user.getLogin();
         this.aktiv = user.getAktiv();
+        this.lavozimlar = user.getLavozimlar();
+
     }
 
     public Long getId() {
@@ -53,6 +55,7 @@ public class UserDTO {
     public String getLogin() {
         return login;
     }
+
     public Boolean isAktiv() {
         return aktiv;
     }
@@ -66,5 +69,15 @@ public class UserDTO {
         this.login = login;
     }
 
+    public Set<Lavozim> getLavozimlar() {
+        return lavozimlar;
+    }
 
+    public void setLavozimlar(Set<Lavozim> lavozimlar) {
+        this.lavozimlar = lavozimlar;
+    }
+
+    public Boolean getAktiv() {
+        return aktiv;
+    }
 }

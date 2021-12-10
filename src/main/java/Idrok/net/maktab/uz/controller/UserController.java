@@ -29,7 +29,7 @@ public class UserController {
     }
 
     @PutMapping
-    public UserDTO update(@RequestBody UserDTO User){
+    public UserDTO update(@RequestBody User User){
         return userService.update(User);
     }
 

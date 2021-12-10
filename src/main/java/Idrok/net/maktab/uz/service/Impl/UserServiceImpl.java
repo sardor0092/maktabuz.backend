@@ -35,11 +35,7 @@ public class UserServiceImpl implements UserService {
         return userRepository.findById(id).map(UserDTO::new);
     }
 
-    @Override
-    public UserDTO create(UserDTO userDTO) {
-        return  null;
 
-    }
 
     @Override
     public Optional<User> getByIdEntity(Long id) {
@@ -66,6 +62,8 @@ public class UserServiceImpl implements UserService {
         return userName;
     }
 
+
+
     @Override
     public UserDTO create(User user) {
         user.setParol(encoder.encode(user.getParol()));
@@ -75,16 +73,13 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public UserDTO update(UserDTO userDTO) {
-        return null;
+    public UserDTO update(User user) {
+
+        return new UserDTO(userRepository.save(user));
 
     }
 
-    @Override
-    public void delete(UserDTO userDTO) {
 
-
-    }
     @Override
     public void deleteById(Long id) {
         userRepository.deleteById(id);
