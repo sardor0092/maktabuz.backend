@@ -14,7 +14,6 @@ import java.util.stream.Collectors;
 @Component
 public class JwtTokenUtil implements Serializable {
 
-
     private String secret;
     private int jwtExpirationInMs;
     private int jwtExpirationInMsRememberMe;
