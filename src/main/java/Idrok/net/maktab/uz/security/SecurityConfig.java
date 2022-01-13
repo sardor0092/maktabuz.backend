@@ -21,7 +21,6 @@ import org.springframework.web.filter.CorsFilter;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-
     @Autowired
     private JWTFilter jwtFilter;
 
@@ -33,7 +32,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.userDetailsService(userProvider).passwordEncoder(passwordEncoder());
 
     }
-
     @Bean
     @Override
     public AuthenticationManager authenticationManagerBean() throws Exception {
@@ -46,7 +44,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         http = http.cors().and().csrf().disable();
         http
 
-
 //                .addFilterBefore(corsFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
 
@@ -54,11 +51,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/api/account/authenticate").permitAll()
                 .antMatchers("/api/account/register").permitAll()
 //                .antMatchers(HttpMethod.GET,"/api/account/register").hasAnyAuthority("(\"ADMIN\", \"DIREKTOR\")")
-                
-
-
-
-
 
                 .anyRequest().authenticated()
                 .and().exceptionHandling()
@@ -110,6 +102,5 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new CorsFilter(source);
 
     }
-
 }
 
